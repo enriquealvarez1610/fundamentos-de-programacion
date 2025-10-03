@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int h1, m1, s1;
+    int h2, m2, s2;
+
+    printf("Ingrese el primer horario (HH MM SS): ");
+    scanf("%d %d %d", &h1, &m1, &s1);
+
+    printf("Ingrese el segundo horario (HH MM SS): ");
+    scanf("%d %d %d", &h2, &m2, &s2);
+
+    int total_segundos1 = h1 * 3600 + m1 * 60 + s1;
+    int total_segundos2 = h2 * 3600 + m2 * 60 + s2;
+
+    int diferencia = total_segundos2 - total_segundos1;
+
+
+    int horas = diferencia / 3600;
+    int minutos = (diferencia % 3600) / 60;
+    int segundos = diferencia % 60;
+
+
+    printf("Tiempo transcurrido: %d:%02d:%02d\n", horas, minutos, segundos);
+
+    return 0;
+}
