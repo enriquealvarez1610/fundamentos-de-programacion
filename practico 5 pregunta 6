@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float a, b, c;
+    float discriminante, x1, x2, parteReal, parteImag;
+
+    printf("Ingrese los coeficientes a, b y c: ");
+    scanf("%f %f %f", &a, &b, &c);
+
+    // Verificar si es realmente cuadrática
+    if (a == 0) {
+        printf("No es una ecuacion cuadratica.\n");
+        return 0;
+    }
+
+    discriminante = b*b - 4*a*c;
+
+    if (discriminante > 0) {
+        // Dos raíces reales distintas
+        x1 = (-b + sqrt(discriminante)) / (2*a);
+        x2 = (-b - sqrt(discriminante)) / (2*a);
+        printf("Raices reales y distintas:\n");
+        printf("x1 = %.2f\n", x1);
+        printf("x2 = %.2f\n", x2);
+    }
+    else if (discriminante == 0) {
+        // Raíces reales e iguales
+        x1 = -b / (2*a);
+        printf("Raices reales e iguales:\n");
+        printf("x1 = x2 = %.2f\n", x1);
+    }
+    else {
+        // Raíces complejas
+        parteReal = -b / (2*a);
+        parteImag = sqrt(-discriminante) / (2*a);
+        printf("Raices complejas:\n");
+        printf("x1 = %.2f + %.2fi\n", parteReal, parteImag);
+        printf("\nx2 = %.2f - %.2fi\n", parteReal, parteImag);
+    }
+
+    return 0;
+}
