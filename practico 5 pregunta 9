@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    float a, b, c, d, e, f;
+    float det, detX, detY, x, y;
+
+    printf("aX + bY = c\n");
+    printf("dX + eY = f\n");
+
+    printf("Ingrese los valores de a, b, c, d, e, f: ");
+    scanf("%f %f %f %f %f %f", &a, &b, &c, &d, &e, &f);
+
+    det = a*e - b*d;
+
+    if (det != 0) {
+        x = (c*e - b*f) / det;
+        y = (a*f - c*d) / det;
+        printf("Solucion unica:\n");
+        printf("X = %.2f\n", x);
+        printf("Y = %.2f\n", y);
+    } 
+    else {
+        detX = c*e - b*f;
+        detY = a*f - c*d;
+
+        if (detX == 0 && detY == 0) {
+            printf("Infinitas soluciones.\n");
+        } 
+        else {
+            printf("No tiene solucion.\n");
+        }
+    }
+
+    return 0;
+}
